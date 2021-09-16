@@ -4,12 +4,12 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
 } from "react-router-dom";
 import "index.scss";
 import styled from "styled-components";
 import Nav from "components/Nav";
+
 const Wrapper = styled.div`
   outline: 1px solid red;
   height: 100vh;
