@@ -6,7 +6,10 @@ import {
   Redirect,
 } from 'react-router-dom';
 import 'index.scss';
-import Layout from './components/Layout';
+import Money from './views/Money';
+import Tabs from './views/Tabs';
+import Statistics from './views/Statistics';
+import NotFound from './views/NotFound';
 
 function App() {
   return (
@@ -29,40 +32,6 @@ function App() {
         </Route>
       </Switch>
     </Router>
-  );
-}
-
-function NotFound() {
-  return <h2>页面不存在</h2>;
-}
-
-function Money() {
-  return (
-    <>
-      <Layout>
-        <h2>记账页</h2>;
-      </Layout>
-    </>
-  );
-}
-
-function Statistics() {
-  return (
-    <>
-      <Layout>
-        <h2>统计页</h2>;
-      </Layout>
-    </>
-  );
-}
-
-function Tabs() {
-  return (
-    <>
-      <Layout>
-        <h2>标签页</h2>;
-      </Layout>
-    </>
   );
 }
 
