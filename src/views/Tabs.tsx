@@ -3,11 +3,10 @@ import React from 'react';
 
 function Tabs() {
   return (
-    <>
-      <Layout>
-        <h2>标签页</h2>;
-      </Layout>
-    </>
+    <Layout>
+      <h2>标签页</h2>;
+    </Layout>
   );
 }
-export default Tabs
+
+export default Tabs;

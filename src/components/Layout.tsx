@@ -14,16 +14,14 @@ const Main = styled.div`
   overflow: auto;
 `;
 
-const Layout = (props:any) => {
+const Layout = (props: any) => {
   return (
-    <>
-      <Wrapper>
-        <Main>
-          {props.children}
-        </Main>
-        <Nav/>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <Main className={props.className}>
+        {props.children}
+      </Main>
+      <Nav/>
+    </Wrapper>
   );
 };
 
