@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import { useState } from "react";
+import styled from "styled-components";
 
-const CategorySection = styled.section`
+const Wrapper = styled.section`
   font-size: 24px;
 
   > ul {
@@ -14,7 +15,7 @@ const CategorySection = styled.section`
       position: relative;
 
       &.selected::after {
-        content: '';
+        content: "";
         display: block;
         height: 3px;
         background: #333;
@@ -27,4 +28,25 @@ const CategorySection = styled.section`
   }
 `;
 
-export default CategorySection
+const CategorySection: React.FC = () => {
+  const [categoryList] = useState<("-" | "+")[]>(["+", "-"]); //只能是 - 和 + 的数组
+  const [category, setCategory] = useState("-");
+  const categoryMap = { "-": "支出", "+": "收入" };
+  return (
+    <Wrapper>
+      <ul>
+        {categoryList.map((item) => (
+          <li
+            className={category === item ? "selected" : ""}
+            onClick={() => {
+              setCategory(item);
+            }}
+          >
+            {categoryMap[item]}
+          </li>
+        ))}
+      </ul>
+    </Wrapper>
+  );
+};
+export default CategorySection;
