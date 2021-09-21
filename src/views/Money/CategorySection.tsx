@@ -41,6 +41,7 @@ const CategorySection: React.FC = () => {
             onClick={() => {
               setCategory(item);
             }}
+            key={item}
           >
             {categoryMap[item]}
           </li>
