@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import styled from "styled-components";
+import { useRef } from 'react'
+import styled from 'styled-components'
 
 const Wrapper = styled.section`
   background: #f5f5f5;
@@ -23,17 +23,22 @@ const Wrapper = styled.section`
       border: none;
     }
   }
-`;
+`
 
-const NoteSection: React.FC = () => {
-  const [note, setNote] = useState("");
-  const refInput = useRef<HTMLInputElement>(null);
+type Props = {
+  value: string
+  onChange: (value: string) => void
+}
+
+const NoteSection: React.FC<Props> = props => {
+  const note = props.value
+  const refInput = useRef<HTMLInputElement>(null)
   //相当于 Vue 中 .lazy 修饰符的作用，只关心离开 input 区域后的 value
   const onBlur = () => {
     if (refInput.current !== null) {
-      setNote(refInput.current.value);
+      props.onChange(refInput.current.value)
     }
-  };
+  }
   return (
     <Wrapper>
       <label>
@@ -42,15 +47,15 @@ const NoteSection: React.FC = () => {
           type="text"
           placeholder="在这里输入备注"
           value={note}
-          onChange={(e) => {
-            setNote(e.target.value);
+          onChange={e => {
+            props.onChange(e.target.value)
           }}
           onBlur={onBlur}
           ref={refInput}
         />
       </label>
     </Wrapper>
-  );
-};
+  )
+}
 
-export default NoteSection;
+export default NoteSection

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import styled from "styled-components";
+import { useState } from 'react'
+import styled from 'styled-components'
 
 const Wrapper = styled.section`
   font-size: 24px;
@@ -15,7 +15,7 @@ const Wrapper = styled.section`
       position: relative;
 
       &.selected::after {
-        content: "";
+        content: '';
         display: block;
         height: 3px;
         background: #333;
@@ -26,20 +26,25 @@ const Wrapper = styled.section`
       }
     }
   }
-`;
+`
 
-const CategorySection: React.FC = () => {
-  const [categoryList] = useState<("-" | "+")[]>(["+", "-"]); //只能是 - 和 + 的数组
-  const [category, setCategory] = useState("-");
-  const categoryMap = { "-": "支出", "+": "收入" };
+type Props = {
+  value: '-' | '+'
+  onChange: (value: '-' | '+') => void
+}
+
+const CategorySection: React.FC<Props> = props => {
+  const category = props.value
+  const [categoryList] = useState<('-' | '+')[]>(['+', '-']) //只能是 - 和 + 的数组
+  const categoryMap = { '-': '支出', '+': '收入' }
   return (
     <Wrapper>
       <ul>
-        {categoryList.map((item) => (
+        {categoryList.map(item => (
           <li
-            className={category === item ? "selected" : ""}
+            className={category === item ? 'selected' : ''}
             onClick={() => {
-              setCategory(item);
+              props.onChange(item)
             }}
             key={item}
           >
@@ -48,6 +53,6 @@ const CategorySection: React.FC = () => {
         ))}
       </ul>
     </Wrapper>
-  );
-};
-export default CategorySection;
+  )
+}
+export default CategorySection
