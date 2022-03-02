@@ -1,5 +1,5 @@
 @import-normalize;
-@import "helper.scss";
+@import 'helper.scss';
 * {
   margin: 0;
   padding: 0;
@@ -30,10 +30,10 @@ body {
 button {
   font-family: inherit;
 }
-:focus{
+:focus {
   outline: none;
 }
-.clearfix::after{
+.clearfix::after {
   content: '';
   display: block;
   clear: both;
@@ -41,4 +41,9 @@ button {
 .icon {
   height: 1em;
   width: 1em;
+}
+.oneLine {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

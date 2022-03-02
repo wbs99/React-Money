@@ -1,16 +1,12 @@
-import React from 'react';
-import {
-  HashRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from 'react-router-dom';
-import 'index.scss';
-import Money from './views/Money';
-import Tabs from './views/Tabs';
-import Statistics from './views/Statistics';
-import NotFound from './views/NotFound';
-import styled from 'styled-components';
+import React from 'react'
+import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import 'index.scss'
+import Money from './views/Money'
+import Tags from './views/Tags'
+import Tag from './views/Tag'
+import Statistics from './views/Statistics'
+import NotFound from './views/NotFound'
+import styled from 'styled-components'
 
 const AppWrapper = styled.div`
   color: #333;
@@ -21,25 +17,28 @@ function App() {
     <AppWrapper>
       <Router>
         <Switch>
-          <Route path="/tabs">
-            <Tabs/>
+          <Route exact path="/tags">
+            <Tags />
           </Route>
-          <Route path="/money">
-            <Money/>
+          <Route exact path="/tags/:tag">
+            <Tag />
           </Route>
-          <Route path="/statistics">
-            <Statistics/>
+          <Route exact path="/money">
+            <Money />
+          </Route>
+          <Route exact path="/statistics">
+            <Statistics />
           </Route>
           <Route exact path="/">
-            <Redirect to="/money"/>
+            <Redirect to="/money" />
           </Route>
           <Route path="*">
-            <NotFound/>
+            <NotFound />
           </Route>
         </Switch>
       </Router>
     </AppWrapper>
-  );
+  )
 }
 
-export default App;
+export default App
