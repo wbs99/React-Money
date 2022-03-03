@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import Icon from "./Icon";
+import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
+import Icon from './Icon'
 
 const NavWrapper = styled.nav`
   line-height: 22px;
@@ -32,7 +32,7 @@ const NavWrapper = styled.nav`
       }
     }
   }
-`;
+`
 
 const Nav = () => {
   return (
@@ -45,7 +45,7 @@ const Nav = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/tabs" activeClassName="selected">
+          <NavLink to="/tags" activeClassName="selected">
             <Icon name="tags" />
             标签页
           </NavLink>
@@ -58,7 +58,7 @@ const Nav = () => {
         </li>
       </ul>
     </NavWrapper>
-  );
-};
+  )
+}
 
-export default Nav;
+export default Nav

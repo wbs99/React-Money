@@ -39,14 +39,14 @@ const Space = styled.div`
 `
 
 function Tags() {
-  const { tags, setTags } = useTags()
+  const { tags } = useTags()
   return (
     <Layout>
       <TagList>
         {tags.map(tag => (
-          <li key={tag}>
-            <NavLink to={'/tags/' + tag}>
-              <span className="oneLine">{tag}</span>
+          <li key={tag.id}>
+            <NavLink to={'/tags/' + tag.id}>
+              <span className="oneLine">{tag.name}</span>
               <Icon name={'right'}></Icon>
             </NavLink>
           </li>
