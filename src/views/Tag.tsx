@@ -5,9 +5,9 @@ import { Input } from 'components/Input'
 import Layout from 'components/Layout'
 import { Space } from 'components/Space'
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import { useTags } from 'useTags'
+import { useTags } from 'hooks/useTags'
 
 type Params = {
   id: string
@@ -28,6 +28,10 @@ const InputWrapper = styled.div`
 
 const Tag: React.FC = () => {
   const { findTag, updateTag, deleteTag } = useTags()
+  const history = useHistory()
+  const onClickBack = () => {
+    history.goBack()
+  }
 
   let { id } = useParams<Params>()
   const tag = findTag(parseInt(id))
@@ -35,7 +39,7 @@ const Tag: React.FC = () => {
   return (
     <Layout>
       <Topbar>
-        <Icon name="left"></Icon>
+        <Icon name="left" onClick={onClickBack}></Icon>
         <span>编辑标签</span>
         <Icon></Icon>
       </Topbar>
