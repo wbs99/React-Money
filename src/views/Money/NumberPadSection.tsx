@@ -29,7 +29,7 @@ const NumberPadSection: React.FC<Props> = props => {
     if (text === null) {
       return
     }
-    if (text === 'ok') {
+    if (text === 'OK') {
       console.log('ok')
       if (props.onOk) {
         props.onOk()
