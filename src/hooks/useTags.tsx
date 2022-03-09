@@ -50,6 +50,11 @@ const useTags = () => {
     }
   }
 
+  const getTagNameById = (id: number) => {
+    const tag = tags.filter(t => t.id === id)[0]
+    return tag ? tag.name : ''
+  }
+
   return {
     tags,
     setTags,
@@ -58,6 +63,7 @@ const useTags = () => {
     updateTag,
     deleteTag,
     addTag,
+    getTagNameById,
   }
 }
 export { useTags }
