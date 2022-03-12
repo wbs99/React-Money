@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react'
+import React, { useState } from 'react'
 import dayjs from 'dayjs'
 import Layout from '../components/Layout'
 import CategorySection from './Money/CategorySection'
